@@ -14,8 +14,8 @@ const App = function(){
       <BrowserRouter>
         <div>
           <Header />
-          <Route exact path='/' component={Index} />
-          <Route path='/test' component={Test} />
+          <Route exact path='/Demo/' component={Index} />
+          <Route path='/Demo/test' component={Test} />
         </div>
       </BrowserRouter>
     </div>
