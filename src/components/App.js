@@ -1,26 +1,53 @@
 import React, { Component } from 'react';
-import 'materialize-css/dist/css/materialize.min.css';
-import '../css/App.css';
+import _ from 'lodash';
 import { BrowserRouter, Route } from 'react-router-dom';
-
+import YTSearch from 'youtube-api-search';
 import Header from './Header';
+import Menu from './Menu';
+import Content from './Content';
 
-const Test = () => <h2>Test Page!</h2>;
-const Index = () => <h2>Index Page!</h2>;
+// import 'materialize-css/dist/css/materialize.min.css';
+import '../css/App.css';
 
-const App = function(){
-  return (
-    <div>
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Route exact path='/Demo/' component={Index} />
-          <Route path='/Demo/test' component={Test} />
-        </div>
-      </BrowserRouter>
-    </div>
-  );
+const API_KEY = 'AIzaSyAh9A_vp5iW5uGoA8e24R-9L9vRb3ULe0M';
 
+class App extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			videos: [],
+			selectedVideo: null
+		};
+
+		this.videoSearch('surfboards');
+	}
+
+	videoSearch(term){
+		YTSearch({ key: API_KEY, term: term}, (videos) => {
+			this.setState({
+				videos: videos,
+				selectedVideo: videos[0]
+			});
+		});
+	}
+
+	render(){
+		const videoSearch = _.debounce((term) => { this.videoSearch(term)}, 300);
+
+		return (
+			<div className='contentContainer'>
+        <Header />
+        <Menu />
+        <Content videos={this.state.videos} />
+				{/* <SearchBar onSearchTermChange={videoSearch} /> */}
+				{/* <VideoDetail video={this.state.selectedVideo}/>
+				<VideoList
+					onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
+					videos={this.state.videos} /> */}
+			</div>
+		);
+	}
 }
 
 export default App;
