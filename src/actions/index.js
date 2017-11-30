@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_KEY = 'AIzaSyAh9A_vp5iW5uGoA8e24R-9L9vRb3ULe0M';
+import { YOUTUBE_API_KEY } from '../keys/key';
 
 export const fetchVideo = options => {
     return async dispatch => {
@@ -8,7 +7,7 @@ export const fetchVideo = options => {
             regionCode: options.regionCode ? options.regionCode : null,
             chart: 'mostPopular',
             part: 'snippet,contentDetails,statistics',
-            key: API_KEY, 
+            key: YOUTUBE_API_KEY, 
             maxResults: options.maxResults ? options.maxResults : 10
         };
     
@@ -22,7 +21,7 @@ export const searchVideo = options => {
     return dispatch => {
         const params = {
             part: 'snippet',
-            key: API_KEY,
+            key: YOUTUBE_API_KEY,
             q: options.term,
             type: options.type ? options.type : 'video',
             maxResults: options.maxResults ? options.maxResults : 10
