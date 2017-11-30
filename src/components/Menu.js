@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions'
 
 class Menu extends Component {
     constructor(props){
@@ -52,4 +54,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+export default connect(null, actions)(Menu);

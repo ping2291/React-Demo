@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import VideoList from './video_list';
 
 const Content = ({videos}) => {
