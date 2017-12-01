@@ -153,17 +153,25 @@ html, body, #root {
       li {
         list-style-type: none;
         width: 210px;
-        height: 300px;
+        height: 220px;
         float: left;
         margin: 10px 5px;
         .media-heading {
           font-size: 15px;
           max-height: 1.8rem;
           overflow: hidden;
+          margin: 8px 0;
         }
 
         .media-object {
           width: 100%;
+        }
+
+        .videoInfo {
+          color: rgba(17, 17, 17, 0.6);
+          font-size: 13px;
+          line-height: 18px; 
+          font-weight: 400;         
         }
       }
     }
@@ -179,7 +187,7 @@ html, body, #root {
   left: 0;
   bottom: 0;
   background-color: black;
-  opacity: 0.7;
+  opacity: 0.8;
   display: block;
 }
 
@@ -195,10 +203,33 @@ html, body, #root {
   iframe {
     height: 100%;
     width: 100%;
+    border: none;
   }
 
   .embed-video {
     height: 100%;
+  }
+
+  .details {
+    color: #ddd;
+    background-color: black;
+    margin-top: 5px;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+
+    .title {
+      margin-bottom: 5px;
+    }
+
+    .descript {
+      font-size: 15px;
+
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
   }
 }
 

@@ -18,7 +18,6 @@ class Content extends Component {
 }
 
 function mapStateToProps(state){
-    console.log('content state >>> ', state);
     return {
         videos: state.videos.list
     };

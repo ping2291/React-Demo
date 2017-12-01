@@ -13,6 +13,16 @@ const Model = ({play, closeModel}) => {
         isHide = '';
     }
 
+    let details = '';
+    if(play.snippet){
+        details = (
+            <div className="details">
+                <div className="title">{play.snippet.title}</div>
+                <div className="descript"><pre>{play.snippet.description}</pre></div>
+            </div>
+        );
+    }
+
     return (
         <div className={isHide}> 
             <div className="model-overlay" onClick={closeModel}></div>
@@ -20,10 +30,7 @@ const Model = ({play, closeModel}) => {
                 <div className="embed-video">
                     <iframe title='test' className="" src={url} allowFullScreen></iframe>
                 </div>
-                <div className="details">
-                    <div>{'video.snippet.title'}</div>
-                    <div>{'video.snippet.description'}</div>
-                </div>
+                {details}
             </div>
         </div>
     );

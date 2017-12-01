@@ -43,8 +43,24 @@ const VideoListItem = ({video, playHandler}) => {
   const publicTime = timeDiff(video.snippet.publishedAt);
 
   let viewCount = '';
+  let channekTitle = '';
+
   if(video.statistics && video.statistics.viewCount){
-    viewCount = <div><div>觀看次數：{video.statistics.viewCount}•{publicTime}</div></div>;
+    let count = video.statistics.viewCount;
+
+    if(Math.floor(count / 100000000)){
+      count = `${Math.floor(count / 100000000)}億`;
+    }
+
+    if(Math.floor(count / 10000)){
+      count = `${Math.floor(count / 10000)}萬`;
+    }
+
+    viewCount = <div className='videoInfo'>觀看次數：{count}&nbsp;•&nbsp;{publicTime}</div>;
+  }
+
+  if(video.snippet && video.snippet.channelTitle){
+    channekTitle = <div className='videoInfo'>{video.snippet.channelTitle}</div>;
   }
 
   var playVideoFunc = () => {
@@ -60,9 +76,7 @@ const VideoListItem = ({video, playHandler}) => {
         <div className="media-body">
           <div className="media-heading">{video.snippet.title}</div>
         </div>
-        <div>
-          <div>{video.snippet.channelTitle}</div>
-        </div>
+        {channekTitle}
         {viewCount}
       </div>
     </li>

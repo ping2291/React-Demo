@@ -115,15 +115,21 @@ html, body, #root {
       .content .result ul li {
         list-style-type: none;
         width: 210px;
-        height: 300px;
+        height: 220px;
         float: left;
         margin: 10px 5px; }
         .content .result ul li .media-heading {
           font-size: 15px;
           max-height: 1.8rem;
-          overflow: hidden; }
+          overflow: hidden;
+          margin: 8px 0; }
         .content .result ul li .media-object {
           width: 100%; }
+        .content .result ul li .videoInfo {
+          color: rgba(17, 17, 17, 0.6);
+          font-size: 13px;
+          line-height: 18px;
+          font-weight: 400; }
 
 .model-overlay {
   position: fixed;
@@ -133,7 +139,7 @@ html, body, #root {
   left: 0;
   bottom: 0;
   background-color: black;
-  opacity: 0.7;
+  opacity: 0.8;
   display: block; }
 
 .video-detail {
@@ -146,9 +152,24 @@ html, body, #root {
   height: 480px; }
   .video-detail iframe {
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    border: none; }
   .video-detail .embed-video {
     height: 100%; }
+  .video-detail .details {
+    color: #ddd;
+    background-color: black;
+    margin-top: 5px;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto; }
+    .video-detail .details .title {
+      margin-bottom: 5px; }
+    .video-detail .details .descript {
+      font-size: 15px; }
+      .video-detail .details .descript pre {
+        white-space: pre-wrap;
+        word-wrap: break-word; }
 
 .hide {
   display: none; }
