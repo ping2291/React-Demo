@@ -19,7 +19,7 @@ class App extends Component {
             <Header />
             <Menu />
             <Route exact path='/' component={MainPage} />
-            <Route path='/search' component={SearchPage} />
+            <Route exact path='/search' component={SearchPage} />
             <Route exact path='/hot' component={HotPage} />
           </div>
         </BrowserRouter>

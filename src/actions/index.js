@@ -38,3 +38,7 @@ export const searchVideo = options => {
 };
 
 export const queryTerm = term => dispatch => dispatch({ type: 'query_term', payload: term });
+
+export const playVideo = playVideo => dispatch => dispatch({ type: 'play_video', payload: playVideo });
+
+export const closeModel = () => dispatch => dispatch({ type: 'close_model', payload: {} });

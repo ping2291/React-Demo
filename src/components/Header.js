@@ -4,14 +4,19 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import SearchBar from './serach_bar';
+import Model from './model';
 
 class Header extends Component {
-
+    
     queryBtnHandler(){
         this.props.searchVideo({
             term: this.props.term,
             maxResults: 15
         });
+    }
+
+    closeModel(){
+        this.props.closeModel();
     }
 
     render(){
@@ -25,6 +30,7 @@ class Header extends Component {
                         <Link to='/search'><button type='button' className='searchBtn' onClick={this.queryBtnHandler.bind(this)}>搜尋</button></Link>
                     </div>
                 </div>
+                <Model play={this.props.play} closeModel={this.closeModel.bind(this)} />
             </div>
         );
     }
@@ -32,7 +38,8 @@ class Header extends Component {
 
 function mapStateToProps(state){
     return {
-        term: state.term
+        term: state.term,
+        play: state.videos.playVideo
     };
 }
 

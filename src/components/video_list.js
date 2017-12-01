@@ -1,7 +1,7 @@
 import React from 'react';
 import VideoListItem from './video_list_item';
 
-const VideoList = ({ videos = [], onVideoSelect}) => {
+const VideoList = ({ videos = [], playHandler }) => {
   if(!(videos instanceof Array)){
     videos = videos.data.items;
   }
@@ -9,7 +9,7 @@ const VideoList = ({ videos = [], onVideoSelect}) => {
   const videoItems = videos.map((video) => {
     return (
       <VideoListItem
-        onVideoSelect={onVideoSelect}
+        playHandler={playHandler}
         key={video.etag}
         video={video} />
     );

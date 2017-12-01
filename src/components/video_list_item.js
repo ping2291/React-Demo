@@ -38,9 +38,8 @@ const timeDiff = (before) => {
   }
 };
 
-const VideoListItem = ({video, onVideoSelect}) => {
+const VideoListItem = ({video, playHandler}) => {
   const imageUrl = video.snippet.thumbnails.medium.url;
-
   const publicTime = timeDiff(video.snippet.publishedAt);
 
   let viewCount = '';
@@ -48,8 +47,12 @@ const VideoListItem = ({video, onVideoSelect}) => {
     viewCount = <div><div>觀看次數：{video.statistics.viewCount}•{publicTime}</div></div>;
   }
 
+  var playVideoFunc = () => {
+    playHandler(video);
+  };
+
   return (
-    <li className="list-group-item">
+    <li className="list-group-item" onClick={playVideoFunc}>
       <div className="video-list media">
         <div className="media-left">
           <img className="media-object" alt='' src={imageUrl} />

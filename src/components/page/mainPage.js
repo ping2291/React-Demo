@@ -14,15 +14,9 @@ class MainPage extends Component {
 
     render(){
         return (
-            <Content videos={this.props.videos} />
+            <Content />
         );
     }
 }
 
-function mapStateToProps({videos}){
-    return {
-        videos
-    };
-}
-
-export default connect(mapStateToProps, actions)(MainPage);
+export default connect(null, actions)(MainPage);
