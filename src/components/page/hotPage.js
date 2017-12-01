@@ -15,15 +15,9 @@ class HotPage extends Component {
 
     render(){
         return (
-            <Content videos={this.props.videos} />
+            <Content />
         );
     }
 }
 
-function mapStateToProps(state){
-    return {
-        videos: state.videos
-    };
-}
-
-export default connect(mapStateToProps, actions)(HotPage);
+export default connect(null, actions)(HotPage);

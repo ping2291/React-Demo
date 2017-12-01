@@ -4,7 +4,12 @@ const Model = ({play, closeModel}) => {
     let isHide = 'hide';
     let url = '';
     if(play && play.id){
-        url = `https://www.youtube.com/embed/${play.id}?autoplay=1`;
+        if(play.id.videoId){
+            // search result
+            url = `https://www.youtube.com/embed/${play.id.videoId}?autoplay=1`;
+        }else{
+            url = `https://www.youtube.com/embed/${play.id}?autoplay=1`;
+        }
         isHide = '';
     }
 
