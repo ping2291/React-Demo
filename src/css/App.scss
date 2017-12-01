@@ -187,9 +187,8 @@ html, body, #root {
 
 
 .model-overlay {
+  @extend .fillAll;
   position: fixed;
-  width: 100%;
-  height: 100%;
   z-index: 1100;
   left: 0;
   bottom: 0;
