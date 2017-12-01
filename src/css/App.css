@@ -147,7 +147,8 @@ html, body, #root {
   width: 854px;
   height: 480px; }
   .video-detail iframe {
-    border: none; }
+    border: none;
+    background-color: black; }
   .video-detail .embed-video {
     height: 100%; }
   .video-detail .details {
