@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ping2291.github.io/Demo",
+  "homepage": "https://ping2291.github.io/React-Demo/",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
