@@ -14,7 +14,7 @@ class App extends Component {
 	render(){
 		return (
 			<div className='contentContainer'>
-        <BrowserRouter basename="/Demo">
+        <BrowserRouter basename="/React-Demo">
           <div>
             <Header />
             <Menu />

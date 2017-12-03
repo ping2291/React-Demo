@@ -5,6 +5,7 @@ const defaultState = {
 }
 
 export default function(state = defaultState, action){
+    console.log('video action >> ',action);
     switch(action.type){
         case 'search_video':
         case 'fetch_video':

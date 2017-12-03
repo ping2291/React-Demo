@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -13,6 +13,8 @@ class Header extends Component {
             term: this.props.term,
             maxResults: 15
         });
+        // need react-router-dom withRouter
+        this.props.history.push('/search');
     }
 
     closeModel(){
@@ -26,7 +28,7 @@ class Header extends Component {
                     <div className='spac' style={{ color: '#b0b0b0', cursor: 'pointer'}}><i className="fa fa-bars" aria-hidden="true"></i></div>
                     <div className='spac'>My VideoTube</div>
                     <div className='spac searchConainer'>
-                        <SearchBar />
+                        <SearchBar enterHandler={this.queryBtnHandler.bind(this)} />
                         <Link to='/search'><button type='button' className='searchBtn' onClick={this.queryBtnHandler.bind(this)}>搜尋</button></Link>
                     </div>
                 </div>
@@ -43,4 +45,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps, actions)(Header);
+export default withRouter(connect(mapStateToProps, actions)(Header));
