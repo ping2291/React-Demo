@@ -19,23 +19,32 @@ export const fetchVideo = options => {
 
 export const searchVideo = options => {
     return dispatch => {
+        let actionType = 'search_video';
         const params = {
             part: 'snippet',
             key: YOUTUBE_API_KEY,
             q: options.term,
             type: options.type ? options.type : 'video',
-            maxResults: options.maxResults ? options.maxResults : 10
+            maxResults: options.maxResults ? options.maxResults : 10,
+            nextPageToken: options.nextPageToken ? options.nextPageToken : ''
         };
+
+        if(options.nextPageToken){
+            actionType = 'search_next_video';
+            params.pageToken = options.nextPageToken;
+        }
 
         axios.get('https://www.googleapis.com/youtube/v3/search', { params: params })
              .then( res => {
                  dispatch({
-                     type: 'search_video',
+                     type: actionType,
                      payload: res
                  });
              });            
     }
 };
+
+export const loading = () => dispatch => dispatch({ type: 'query_loading', payload: true });
 
 export const queryTerm = term => dispatch => dispatch({ type: 'query_term', payload: term });
 

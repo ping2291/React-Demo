@@ -107,6 +107,37 @@ html, body, #root {
   background-color: #fafafa;
   overflow-y: auto;
   overflow-x: hidden; }
+  .content .notifyText {
+    position: fixed;
+    right: 50px;
+    bottom: 10px;
+    width: 20px;
+    word-wrap: break-word;
+    text-align: center;
+    color: rgba(17, 17, 17, 0.6);
+    font-weight: bold;
+    border: 1px solid rgba(17, 17, 17, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px; }
+    .content .notifyText i {
+      animation: loadingText 1.5s infinite;
+      font-size: 26px; }
+  .content .loadingText {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+    color: #777272;
+    animation: loadingText 1.5s infinite; }
+
+@keyframes loadingText {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
   .content .searchCounts {
     font-weight: 400;
     line-height: 20px;

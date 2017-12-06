@@ -21,6 +21,14 @@ class Header extends Component {
         this.props.closeModel();
     }
 
+    getNextData(){
+        this.props.searchVideo({
+            nextPageToken: this.props.next,
+            term: this.props.term,
+            maxResults: 15
+        });
+    }
+
     render(){
         return (
             <div className="headerContainer">
@@ -31,6 +39,7 @@ class Header extends Component {
                         <SearchBar enterHandler={this.queryBtnHandler.bind(this)} />
                         <Link to='/search'><button type='button' className='searchBtn' onClick={this.queryBtnHandler.bind(this)}>搜尋</button></Link>
                     </div>
+                    {/* <button onClick={this.getNextData.bind(this)}>Next Page</button> */}
                 </div>
                 <Model play={this.props.play} closeModel={this.closeModel.bind(this)} />
             </div>
@@ -41,7 +50,8 @@ class Header extends Component {
 function mapStateToProps(state){
     return {
         term: state.term,
-        play: state.videos.playVideo
+        play: state.videos.playVideo,
+        next: state.videos.next
     };
 }
 
